@@ -28,6 +28,8 @@ namespace WebApplicationDatabaseZero
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            //services.AddSingleton<IArtistRepository, ArtistRepositorySQLite>();
+            services.AddSingleton<IArtistRepository, ArtistRepositoryJson>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

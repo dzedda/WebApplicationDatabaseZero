@@ -1,6 +1,33 @@
 ﻿@page "/artists"
+@inject IArtistRepository artistRep
 <h3>Artists</h3>
 
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome dell'artista</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Artist item in ArtistsList)
+        {
+            <tr>
+                <th scope="row">@item.IdArtist</th>               
+                <td>@item.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
 @code {
+    public List<Artist> ArtistsList { get
+        {
+            return artistRep.GetArtists();
+        }
+    }
 
 }
